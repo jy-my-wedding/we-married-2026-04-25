@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>청첩장</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif KR', serif;
+            background: #f9f7f4;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 30px 40px;
+            background: linear-gradient(135deg, #ffeef8 0%, #fff5f0 100%);
+        }
+
+        .header h1 {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .names {
+            font-size: 32px;
+            margin: 20px 0;
+            color: #d4a5a5;
+        }
+
+        .date {
+            font-size: 16px;
+            color: #666;
+            margin-top: 30px;
+        }
+
+        .section {
+            padding: 40px 30px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: #d4a5a5;
+        }
+
+        .message {
+            text-align: center;
+            font-size: 15px;
+            line-height: 2;
+            color: #666;
+        }
+
+        .info-box {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .info-box p {
+            margin: 10px 0;
+            font-size: 15px;
+        }
+
+        .info-box .label {
+            color: #999;
+            font-size: 13px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: #f0f0f0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 250px;
+            background: #e8e8e8;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #d4a5a5;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #c49090;
+        }
+
+        .account {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .account-title {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .account-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .copy-btn {
+            padding: 8px 15px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 30px;
+            background: #fafafa;
+            color: #999;
+            font-size: 13px;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500&display=swap');
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="header">
+            <h1>WEDDING INVITATION</h1>
+            <div class="names">신랑 ♡ 신부</div>
+            <div class="date">
+                2025년 12월 25일 토요일 오후 2시<br>
+                ○○웨딩홀 3층 그랜드홀
+            </div>
+        </div>
+
+        <!-- 초대 메시지 -->
+        <div class="section">
+            <div class="section-title">초대합니다</div>
+            <div class="message">
+                살랑이는 바람결에<br>
+                사랑이 묻어나는 계절입니다.<br>
+                <br>
+                저희 두 사람이 사랑과 믿음으로<br>
+                한 가정을 이루게 되었습니다.<br>
+                <br>
+                오셔서 축복해 주시면<br>
+                감사하겠습니다.
+            </div>
+        </div>
+
+        <!-- 신랑신부 정보 -->
+        <div class="section">
+            <div class="info-box">
+                <p class="label">신랑측 혼주</p>
+                <p>아버지 홍길동 · 어머니 김영희</p>
+                <p style="margin-top: 15px;">장남 <strong>홍철수</strong></p>
+            </div>
+            <div class="info-box">
+                <p class="label">신부측 혼주</p>
+                <p>아버지 이철수 · 어머니 박순자</p>
+                <p style="margin-top: 15px;">장녀 <strong>이영희</strong></p>
+            </div>
+        </div>
+
+        <!-- 갤러리 -->
+        <div class="section">
+            <div class="section-title">Gallery</div>
+            <div class="gallery">
+                <div class="gallery-item">사진 1</div>
+                <div class="gallery-item">사진 2</div>
+                <div class="gallery-item">사진 3</div>
+                <div class="gallery-item">사진 4</div>
+            </div>
+        </div>
+
+        <!-- 오시는 길 -->
+        <div class="section">
+            <div class="section-title">오시는 길</div>
+            <div class="map-container">
+                지도 영역<br>
+                (카카오맵 API 연동)
+            </div>
+            <div class="info-box">
+                <p><strong>○○웨딩홀 3층 그랜드홀</strong></p>
+                <p style="font-size: 14px; color: #666;">서울시 강남구 테헤란로 123</p>
+                <p style="font-size: 14px; color: #666; margin-top: 10px;">
+                    🚇 지하철 2호선 역삼역 3번출구 도보 5분<br>
+                    🚌 버스 146, 740, 4412 역삼역 하차
+                </p>
+            </div>
+            <a href="https://map.kakao.com" class="btn" target="_blank">카카오맵으로 길찾기</a>
+            <a href="https://map.naver.com" class="btn" target="_blank" style="background: #03c75a;">네이버지도로 길찾기</a>
+        </div>
+
+        <!-- 마음 전하실 곳 -->
+        <div class="section">
+            <div class="section-title">마음 전하실 곳</div>
+            <div class="account">
+                <div class="account-title">신랑측</div>
+                <div class="account-info">
+                    <span>신랑 홍철수 | 카카오뱅크 1234-56-7890</span>
+                    <button class="copy-btn" onclick="copyAccount('1234567890')">복사</button>
+                </div>
+            </div>
+            <div class="account">
+                <div class="account-title">신부측</div>
+                <div class="account-info">
+                    <span>신부 이영희 | 국민은행 9876-54-3210</span>
+                    <button class="copy-btn" onclick="copyAccount('9876543210')">복사</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 푸터 -->
+        <div class="footer">
+            Thank you for coming<br>
+            2025. 12. 25
+        </div>
+    </div>
+
+    <script>
+        function copyAccount(accountNumber) {
+            navigator.clipboard.writeText(accountNumber).then(() => {
+                alert('계좌번호가 복사되었습니다.');
+            }).catch(() => {
+                alert('복사에 실패했습니다.');
+            });
+        }
+    </script>
+</body>
+
+</html>
