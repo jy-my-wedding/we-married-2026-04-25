@@ -21,10 +21,7 @@ const weddingDate = ref(new Date('2026-04-25'))
 
 <style scoped>
 .calendar {
-  margin: 16px 0;
   padding: 16px;
-  border-radius: 16px;
-  background: #fff7f0; /* 밝은 파스텔 배경 */
   text-align: center;
   width: 100%;
 }

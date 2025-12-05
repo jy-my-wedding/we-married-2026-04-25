@@ -16,8 +16,12 @@ const goToPrivate = () => {
 
 <style scoped>
 button {
+  margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
 }
 </style>

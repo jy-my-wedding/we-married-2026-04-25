@@ -1,11 +1,17 @@
 <script setup>
 import '@/assets/fonts.css'
 import GoToMainBtn from '@/components/GoToMainBtn.vue';
+import ourimg from '@/assets/private_img/image.png'
 </script>
 
 <template>
   <div class="invitation-wrapper">
-    <div>안녕하세요</div>
+    <div class="image_box">
+        <img :src="ourimg" alt="test" class="img_1"/>
+    </div>
+    <div class="title">안녕하세요!</div>
+    <div class="sub-title">여러분들은 신랑, 신부의 짱! 친! 들만 받을 수 있는</div>
+    <div class="sub-title">모바일 청첩장에 오신걸 환영합니다!</div>
     <GoToMainBtn />
   </div>
 </template>
@@ -20,6 +26,25 @@ import GoToMainBtn from '@/components/GoToMainBtn.vue';
   font-family: 'Pretendard', sans-serif;
   background: #fff7f0;
   color: #333;
+}
+.title {
+    font-family: 'modu', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 10px 0px;
+}
+.sub-title{
+    font-family: 'modu', sans-serif;
+    text-align: center;
+    font-size: 24px;
+}
+.image_box{
+    margin-top: 20px;
+    text-align: center;
+}
+.img_1 {
+    width: 70%;
 }
 
 </style>

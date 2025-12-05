@@ -32,7 +32,7 @@ const setTab = (tab) => {
       <NaverMap v-else />
     </div>
     <div class="l_title">대중교통 이용시</div>
-        <div>   
+        <div> 
             <span>지하철</span>
             <span>5호선, 8호선 천호역 10번 출구 바로 앞</span>
         </div>
@@ -56,8 +56,7 @@ const setTab = (tab) => {
             <span>도보</span>
             <span>공영주차장 주차 후 현대백화점 방향 직진하여 천호역 10번출구 이용</span>
         </div>
-
-웨딩홀 주차공간이 매우 협소하오니 가급적 대중교통이나 공영주차장 이용 부탁드립니다.
+        <div class="warning_message">웨딩홀 주차공간이 매우 협소하오니 가급적 대중교통이나 공영주차장 이용 부탁드립니다.</div>
     <div>
         
     </div>
@@ -99,10 +98,18 @@ const setTab = (tab) => {
 }
 
 .l_title {
+    font-weight: bold;
     padding: 5px;
     font-size: 20px;
     margin: 20px 0;
     background-color: beige;
+}
+
+.warning_message{
+    padding: 10px;
+    background-color: #ffb3b3;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
 </style>
