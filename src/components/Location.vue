@@ -1,13 +1,19 @@
 <script setup>
 import { ref } from 'vue'
 import NaverMap from '@/views/map/NaverMap.vue'
-import KakaoMap from '@/views/map/KakaoMap.vue'
+//import KakaoMap from '@/views/map/KakaoMap.vue'
 
 const activeTab = ref('kakao') // 초기값 'kakao'
 
 const setTab = (tab) => {
   activeTab.value = tab
 }
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faBus, faTrainSubway } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faBus, faTrainSubway)
 </script>
 
 <template>
@@ -33,10 +39,12 @@ const setTab = (tab) => {
     </div>
     <div class="l_title">대중교통 이용시</div>
         <div> 
+            <FontAwesomeIcon icon="fa-solid fa-train-subway" class="icon"/>
             <span>지하철</span>
             <span>5호선, 8호선 천호역 10번 출구 바로 앞</span>
         </div>
-        <div>   
+        <div> 
+            <FontAwesomeIcon icon="fa-solid fa-bus" class="icon"/>  
             <span>버스</span>
             <span>천호역 또는 천호사거리 하차
                 130, 340, 341, 370, 3214, 3316, 3321, 3411, 4318, 1-4, 13, 13-2, 16, 23, 30, 30-3, 112-1, 112-5, 1113, 1113-1, 1113-2, 1113-10, 1113-11, 3500, 강동 05, 공항버스6200
@@ -110,6 +118,13 @@ const setTab = (tab) => {
     background-color: #ffb3b3;
     border-radius: 10px;
     margin-top: 10px;
+}
+
+.icon{
+    color: grey;
+    size: 30px;
+    margin-right: 10px;
+
 }
 
 </style>
