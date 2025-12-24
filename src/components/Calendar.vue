@@ -5,11 +5,10 @@
 </script>
 
 <template>
-  <div class="calendar">
+  <div class="month">4</div>
+  <div class="calendar-wrap">
     <v-calendar
-      :attributes="[
-        { key: 'wedding', highlight: true, dates: weddingDate, contentClass: 'wedding-day' },
-      ]"
+      :attributes="[{ key: 'wedding', dates: weddingDate, highlight: false }]"
       :show-nav="false"
       :min-date="weddingDate"
       :max-date="weddingDate"
@@ -18,41 +17,60 @@
 </template>
 
 <style scoped>
-  .calendar {
-    padding: 16px;
+  .month {
     text-align: center;
-    width: 100%;
+    font-size: 20px;
+    margin: 70px 0 20px;
+    color: #94a3b8;
+  }
+  .calendar-wrap {
+    display: flex;
+    justify-content: center;
   }
 
-  .wedding-day {
-    background-color: #ffdada !important; /* 연한 핑크 */
-    color: #ff4d4d !important; /* 진한 핑크 글자 */
-    border-radius: 50% !important; /* 원형 강조 */
-    font-weight: 600;
-    box-shadow: 0 2px 6px rgba(255, 77, 77, 0.3);
+  /* 전체 테두리 제거 */
+  :deep(.vc-container) {
+    border: none;
+    box-shadow: none;
+    background: transparent;
   }
 
-  /* 요일 헤더 스타일 */
-  .vc-weekday {
-    color: #ff7f7f;
-    font-weight: 600;
+  /* 요일 헤더 */
+  :deep(.vc-weekday) {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: #b0a39c;
+    font-weight: 400;
+  }
+
+  /* 날짜 셀 */
+  :deep(.vc-day-content) {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: auto;
     font-size: 14px;
+    color: #9b8f88;
   }
 
-  /* 개별 날짜 스타일 */
-  .vc-day {
-    border-radius: 12px;
-    transition: background 0.3s;
+  /* 오늘, 선택 제거 */
+  :deep(.vc-day.is-today .vc-day-content),
+  :deep(.vc-day.is-selected .vc-day-content) {
+    background: none;
   }
 
-  /* hover 효과 */
-  .vc-day:hover {
-    background-color: #ffeaea;
+  /* 결혼식 날짜 강조 */
+  :deep(.vc-day.has-attr .vc-day-content) {
+    background: #3f3530;
+    color: #ffffff;
+    font-weight: 500;
   }
-
-  /* 오늘 날짜 강조 */
-  .vc-today {
-    border: 2px solid #ffb3b3;
-    border-radius: 12px;
+  /* 월 + 이동 버튼 전체 영역 */
+  :deep(.vc-header) {
+    display: none;
+  }
+  :deep(.vc-day.has-attr .vc-day-content) {
+    background: #7a8f86;
+    color: #ffffff;
   }
 </style>

@@ -170,6 +170,7 @@
   .gallery-section {
     margin-top: 24px;
     text-align: center;
+    padding: 0 20px;
   }
 
   .gallery {

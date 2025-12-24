@@ -8,6 +8,8 @@
   import '@/assets/fonts.css'
   import AccountCard from '@/components/AccountCard.vue'
   import Copyright from '@/components/Copyright.vue'
+  import AboutUs from '@/components/AboutUs.vue'
+  import Timeline from '@/components/Timeline.vue'
 </script>
 
 <template>
@@ -18,10 +20,16 @@
       <div class="c_title">2026년 4월 25일 토요일 오후 5시</div>
       <div class="csub_title">라비니움 1층 리츄얼홀</div>
     </div>
-  </div>
-  <div class="invitation-wrapper size_box">
     <div class="title">Invitation</div>
     <Info />
+  </div>
+  <div class="size_box invitation-wrapper">
+    <div class="title">About Us</div>
+    <AboutUs />
+  </div>
+  <div class="invitation-wrapper bg_green size_box">
+    <div class="title">Our Timeline</div>
+    <Timeline />
   </div>
   <div class="invitation-wrapper size_box bg_white">
     <div class="title">Wedding Day</div>
@@ -29,18 +37,10 @@
     <Countdown />
   </div>
   <div class="size_box invitation-wrapper">
-    <div class="title">About Us</div>
-  </div>
-  <div class="invitation-wrapper bg_green size_box">
-    <div class="color_bg">
-      <div class="title">Our Timeline</div>
-    </div>
-  </div>
-  <div class="size_box bg_white invitation-wrapper">
     <div class="title">Location</div>
     <Location />
   </div>
-  <div class="size_box invitation-wrapper">
+  <div class="size_box invitation-wrapper bg_white">
     <div class="title">Gallery</div>
     <Gallery />
   </div>

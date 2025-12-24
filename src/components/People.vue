@@ -18,6 +18,7 @@
       alert('복사에 실패했어요 😢')
     }
   }
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 </script>
 
 <template>

@@ -1,13 +1,13 @@
 <template>
   <div class="intro-card" :class="type">
-    <div class="badge">{{ badgeText }}</div>
-
     <div class="our_profile">
       <img :src="profileImg" alt="" />
     </div>
 
     <div class="content">
-      <h3 class="our_name">{{ name }}</h3>
+      <h3 class="our_name">
+        <span class="color_gn">{{ badgeText }}</span> {{ name }}
+      </h3>
       <p class="our_desc">
         <slot />
       </p>
@@ -45,18 +45,6 @@
     position: relative;
   }
 
-  /* 배지 */
-  .intro-card .badge {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 12px;
-    color: #fff;
-  }
-
   /* 프로필 */
   .our_profile {
     display: flex;
@@ -85,14 +73,7 @@
     line-height: 1.6;
     color: #555;
   }
-
-  /* 신랑 */
-  .intro-card.groom .badge {
-    background-color: #4a6fa5;
-  }
-
-  /* 신부 */
-  .intro-card.bride .badge {
-    background-color: #a85b6b;
+  .color_gn {
+    font-size: 14px;
   }
 </style>

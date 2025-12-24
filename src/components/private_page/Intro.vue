@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import Title from '@/components/private_page/Title.vue'
-  import IntroCard from '@/components/private_page/IntroCard.vue'
+  import IntroCard from '@/components/IntroCard.vue'
 </script>
 
 <template>

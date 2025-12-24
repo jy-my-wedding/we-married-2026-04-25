@@ -37,7 +37,6 @@
       <NaverMap v-else />
     </div>
     <div class="location_text_body">
-      <div class="l_title">대중교통 이용시</div>
       <table class="info-table">
         <tr>
           <td>지하철</td>
@@ -86,19 +85,22 @@
           <td><FontAwesomeIcon icon="fa-solid fa-bus" class="icon" style="color: #65a7d2" /></td>
           <td>공항버스6200</td>
         </tr>
+        <tr>
+          <td>자가용</td>
+          <td colspan="2">서울시 강동구 천호대로 1026-1</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <FontAwesomeIcon icon="fa-solid fa-train-subway" class="icon" style="color: #833edb" />
+          </td>
+          <td>
+            천호역 6번출구 앞 천호 입구 공영주차장 지하1,2층 <br />
+            공영주차장 주차 후 현대백화점 방향<br />
+            직진하여 천호역 10번출구 이용
+          </td>
+        </tr>
       </table>
-
-      <div class="l_title">자가 이용시</div>
-      <div>
-        <span>주소</span>
-        <span>
-          서울시 강동구 천호대로 1026-1 천호역 6번출구 앞 천호 입구 공영주차장 지하1,2층
-        </span>
-      </div>
-      <div>
-        <span>도보</span>
-        <span>공영주차장 주차 후 현대백화점 방향 직진하여 천호역 10번출구 이용</span>
-      </div>
       <div class="parking-notice-classic">
         <p class="parking-caption">
           <span>Parking Notice</span><br />
@@ -111,7 +113,6 @@
 
 <style scoped>
   .info-section {
-    background: #ffffffaa;
     padding: 16px;
     border-radius: 12px;
     margin-top: 24px;
@@ -146,20 +147,6 @@
     font-family: 'ko_r', sans-serif;
   }
 
-  .l_title {
-    font-weight: bold;
-    padding: 5px;
-    font-size: 20px;
-    margin: 20px 0;
-  }
-
-  .warning_message {
-    padding: 10px;
-    background-color: #ffb3b3;
-    border-radius: 10px;
-    margin-top: 10px;
-  }
-
   .icon {
     color: grey;
     size: 30px;
@@ -171,6 +158,7 @@
   }
   .info-table td {
     vertical-align: top;
+    height: 25px;
   }
   .info-table td:nth-child(1) {
     width: 50px;
