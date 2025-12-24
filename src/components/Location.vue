@@ -1,5 +1,6 @@
 <script setup>
   import { ref } from 'vue'
+  import '@/assets/fonts.css'
   import NaverMap from '@/views/map/NaverMap.vue'
   //import KakaoMap from '@/views/map/KakaoMap.vue'
 
@@ -18,7 +19,7 @@
 
 <template>
   <section class="info-section">
-    <p>라비니움 웨딩홀 1층 리츄얼홀</p>
+    <p>라비니움 웨딩홀</p>
     <p>서울특별시 송파구 천호대로 996</p>
   </section>
   <div class="map-tabs">
@@ -35,35 +36,76 @@
       <KakaoMap v-if="activeTab === 'kakao'" />
       <NaverMap v-else />
     </div>
-    <div class="l_title">대중교통 이용시</div>
-    <div>
-      <FontAwesomeIcon icon="fa-solid fa-train-subway" class="icon" />
-      <span>지하철</span>
-      <span>5호선, 8호선 천호역 10번 출구 바로 앞</span>
-    </div>
-    <div>
-      <FontAwesomeIcon icon="fa-solid fa-bus" class="icon" />
-      <span>버스</span>
-      <span
-        >천호역 또는 천호사거리 하차 130, 340, 341, 370, 3214, 3316, 3321, 3411, 4318, 1-4, 13,
-        13-2, 16, 23, 30, 30-3, 112-1, 112-5, 1113, 1113-1, 1113-2, 1113-10, 1113-11, 3500, 강동 05,
-        공항버스6200
-      </span>
-    </div>
+    <div class="location_text_body">
+      <div class="l_title">대중교통 이용시</div>
+      <table class="info-table">
+        <tr>
+          <td>지하철</td>
+          <td colspan="2">천호역 10번 출구 바로 앞</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <FontAwesomeIcon icon="fa-solid fa-train-subway" class="icon" style="color: #833edb" />
+          </td>
+          <td>5호선</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <FontAwesomeIcon icon="fa-solid fa-train-subway" class="icon" style="color: #e41e6e" />
+          </td>
+          <td>8호선</td>
+        </tr>
+        <tr>
+          <td>버스</td>
+          <td colspan="2">천호역 또는 천호사거리 하차</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><FontAwesomeIcon icon="fa-solid fa-bus" class="icon" style="color: #386de8" /></td>
+          <td>130, 340, 341, 370</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><FontAwesomeIcon icon="fa-solid fa-bus" class="icon" style="color: #3dc444" /></td>
+          <td>3214, 3316, 3321, 3411, 4318</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><FontAwesomeIcon icon="fa-solid fa-bus" class="icon" style="color: #87c800" /></td>
+          <td>강동 05, 1-4, 13, 13-2, 16, 23, 30, 30-3, 112-1, 112-5</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><FontAwesomeIcon icon="fa-solid fa-bus" class="icon" style="color: #fc5852" /></td>
+          <td>1113, 1113-1, 1113-2, 1113-10, 1113-11</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><FontAwesomeIcon icon="fa-solid fa-bus" class="icon" style="color: #65a7d2" /></td>
+          <td>공항버스6200</td>
+        </tr>
+      </table>
 
-    <div class="l_title">자가 이용시</div>
-    <div>
-      <span>주소</span>
-      <span> 서울시 강동구 천호대로 1026-1 천호역 6번출구 앞 천호 입구 공영주차장 지하1,2층 </span>
+      <div class="l_title">자가 이용시</div>
+      <div>
+        <span>주소</span>
+        <span>
+          서울시 강동구 천호대로 1026-1 천호역 6번출구 앞 천호 입구 공영주차장 지하1,2층
+        </span>
+      </div>
+      <div>
+        <span>도보</span>
+        <span>공영주차장 주차 후 현대백화점 방향 직진하여 천호역 10번출구 이용</span>
+      </div>
+      <div class="parking-notice-classic">
+        <p class="parking-caption">
+          <span>Parking Notice</span><br />
+          주차 공간이 협소하여 인근 공영주차장 이용을 부탁드립니다.
+        </p>
+      </div>
     </div>
-    <div>
-      <span>도보</span>
-      <span>공영주차장 주차 후 현대백화점 방향 직진하여 천호역 10번출구 이용</span>
-    </div>
-    <div class="warning_message">
-      웨딩홀 주차공간이 매우 협소하오니 가급적 대중교통이나 공영주차장 이용 부탁드립니다.
-    </div>
-    <div></div>
   </div>
 </template>
 
@@ -100,13 +142,15 @@
   .map-content {
     width: 100%;
   }
+  .map-content span {
+    font-family: 'ko_r', sans-serif;
+  }
 
   .l_title {
     font-weight: bold;
     padding: 5px;
     font-size: 20px;
     margin: 20px 0;
-    background-color: beige;
   }
 
   .warning_message {
@@ -120,5 +164,48 @@
     color: grey;
     size: 30px;
     margin-right: 10px;
+  }
+  .info-table {
+    table-layout: fixed;
+    padding: 0 10px;
+  }
+  .info-table td {
+    vertical-align: top;
+  }
+  .info-table td:nth-child(1) {
+    width: 50px;
+    font-weight: bold;
+  }
+  .info-table td:nth-child(2) {
+    width: 20px;
+  }
+  .info-table td:nth-child(3) {
+    width: auto;
+  }
+
+  .parking-caption {
+    margin-top: 26px;
+    text-align: center;
+
+    font-size: 13px;
+    line-height: 1.8;
+    color: #6f625b;
+  }
+
+  .parking-caption span {
+    display: block;
+    margin-bottom: 4px;
+
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #b0a39c;
+  }
+
+  .bolder_text {
+    font-weight: bold;
+  }
+  .location_text_body {
+    padding: 20px;
   }
 </style>

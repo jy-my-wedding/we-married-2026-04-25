@@ -6,8 +6,6 @@
 
 <template>
   <div class="calendar">
-    <div class="title">2026.04.25</div>
-    <div class="sub_title">토요일 오후 5시</div>
     <v-calendar
       :attributes="[
         { key: 'wedding', highlight: true, dates: weddingDate, contentClass: 'wedding-day' },
@@ -56,17 +54,5 @@
   .vc-today {
     border: 2px solid #ffb3b3;
     border-radius: 12px;
-  }
-
-  .title {
-    text-align: center;
-    font-size: 30px;
-    font-family: 'ko_r', sans-serif;
-  }
-  .sub_title {
-    text-align: center;
-    font-size: 21px;
-    margin: 5px 0 10px;
-    font-family: 'ko_r', sans-serif;
   }
 </style>
