@@ -8,7 +8,7 @@ const props = defineProps({
   account: { type: String, required: true },
   profile_img: {type: String, required: true},
   bgColor: {
-    type: String,
+    type: String, 
     required: true
   },
 })

@@ -62,14 +62,14 @@ const woman = [
   <section class="contact-section">
     <h3 class="side-title">신랑측</h3>
     <People
-      bgColor="#f0f8ff"
+      bgColor="#cfe2ff"
       v-for="person in man"
       :key="person.phone"
       v-bind="person"
     />
     <h3 class="side-title">신부측</h3>
     <People
-      bgColor="#fff0f5"
+      bgColor="#f6dce3"
       v-for="person in woman"
       :key="person.phone"
       v-bind="person"
