@@ -1,6 +1,82 @@
 <script setup>
-  import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
+/* =====================
+   1. 이미지 로드
+===================== */
+// 썸네일
+const thumbs = Object.values(
+  import.meta.glob('/src/assets/photo/wedding/thumbnail/*.{jpg,jpeg,png,webp}', {
+    eager: true,
+    import: 'default',
+  })
+)
+
+// 원본
+const fullImages = Object.values(
+  import.meta.glob('/src/assets/photo/wedding/thumbnail/*.{jpg,jpeg,png,webp}', {
+    eager: true,
+    import: 'default',
+  })
+)
+
+/* =====================
+   2. 갤러리 토글 (더보기)
+===================== */
+const DEFAULT_COUNT = 6
+const isExpanded = ref(false)
+
+const visibleImages = computed(() =>
+  isExpanded.value ? thumbs : thumbs.slice(0, DEFAULT_COUNT)
+)
+
+const toggleGallery = () => {
+  isExpanded.value = !isExpanded.value
+}
+
+/* =====================
+   3. 뷰어 상태
+===================== */
+const isOpen = ref(false)
+const currentIndex = ref(0)
+
+/* =====================
+   4. 뷰어 열기 / 닫기
+===================== */
+const openViewer = (index) => {
+  currentIndex.value = index
+  isOpen.value = true
+
+  // preload (현재 + 다음)
+  const img = new Image()
+  img.src = fullImages[index]
+
+  if (fullImages[index + 1]) {
+    const next = new Image()
+    next.src = fullImages[index + 1]
+  }
+}
+
+const closeViewer = () => {
+  scale.value = 1
+  isOpen.value = false
+}
+
+/* =====================
+   5. 이미지 이동
+===================== */
+const prevImage = () => {
+  if (currentIndex.value > 0) currentIndex.value--
+}
+
+const nextImage = () => {
+  if (currentIndex.value < fullImages.length - 1)
+    currentIndex.value++
+}
+
+/* =====================
+   6. 확대 (더블탭)
+===================== */
 const scale = ref(1)
 let lastTap = 0
 
@@ -16,38 +92,9 @@ const handleTap = () => {
   lastTap = now
 }
 
-const images = Object.values(
-  import.meta.glob('/src/assets/photo/*.{jpg,jpeg,png,webp}', {
-    eager: true,
-    import: 'default',
-  })
-)
-
-const isOpen = ref(false)
-const currentIndex = ref(0)
-
-// ===== open / close =====
-const openViewer = (index) => {
-  currentIndex.value = index
-  isOpen.value = true
-}
-
-// 닫을 때 확대 초기화
-const closeViewer = () => {
-  scale.value = 1
-  isOpen.value = false
-}
-
-// ===== navigation =====
-const prevImage = () => {
-  if (currentIndex.value > 0) currentIndex.value--
-}
-
-const nextImage = () => {
-  if (currentIndex.value < images.length - 1) currentIndex.value++
-}
-
-// ===== swipe =====
+/* =====================
+   7. 스와이프 제스처
+===================== */
 let startX = 0
 
 const onTouchStart = (e) => {
@@ -69,13 +116,23 @@ const onTouchEnd = (e) => {
   <section class="gallery-section">
     <div class="gallery">
       <img
-        v-for="(img, index) in images"
+        v-for="(img, index) in visibleImages"
         :key="index"
         :src="img"
         class="gallery-img"
+        loading="lazy"
         @click="openViewer(index)"
       />
     </div>
+
+    <!-- 토글 버튼 -->
+    <button
+      v-if="thumbs.length > DEFAULT_COUNT"
+      class="toggle-btn"
+      @click="toggleGallery"
+    >
+      {{ isExpanded ? '접기' : `더보기 (${thumbs.length - DEFAULT_COUNT}장)` }}
+    </button>
   </section>
 
   <!-- viewer -->
@@ -91,22 +148,31 @@ const onTouchEnd = (e) => {
 
     <!-- index -->
     <div class="counter">
-      {{ currentIndex + 1 }} / {{ images.length }}
+      {{ currentIndex + 1 }} / {{ fullImages.length }}
     </div>
 
     <!-- left -->
-    <button class="nav left" @click="prevImage" :disabled="currentIndex === 0">
+    <button
+      class="nav left"
+      @click="prevImage"
+      :disabled="currentIndex === 0"
+    >
       ‹
     </button>
 
     <!-- image -->
-    <img :src="images[currentIndex]" class="viewer-image" />
+    <img
+      :src="fullImages[currentIndex]"
+      class="viewer-image"
+      :style="{ transform: `scale(${scale})` }"
+      @click="handleTap"
+    />
 
     <!-- right -->
     <button
       class="nav right"
       @click="nextImage"
-      :disabled="currentIndex === images.length - 1"
+      :disabled="currentIndex === fullImages.length - 1"
     >
       ›
     </button>
@@ -117,9 +183,14 @@ const onTouchEnd = (e) => {
 @media (max-width: 480px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
+  }
 }
 
+.gallery-section {
+  margin-top: 24px;
+  text-align: center;
 }
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -130,9 +201,9 @@ const onTouchEnd = (e) => {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: center;
   border-radius: 8px;
   cursor: pointer;
+  content-visibility: auto;
 }
 
 /* ===== Viewer ===== */
@@ -144,6 +215,7 @@ const onTouchEnd = (e) => {
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  touch-action: none;
 }
 
 .viewer-image {
@@ -153,7 +225,7 @@ const onTouchEnd = (e) => {
   transition: transform 0.25s ease;
 }
 
-/* 닫기 버튼 */
+/* 닫기 */
 .close {
   position: absolute;
   top: 20px;
@@ -165,7 +237,7 @@ const onTouchEnd = (e) => {
   cursor: pointer;
 }
 
-/* 좌우 버튼 */
+/* 좌우 */
 .nav {
   position: absolute;
   top: 50%;
@@ -175,7 +247,6 @@ const onTouchEnd = (e) => {
   color: white;
   border: none;
   cursor: pointer;
-  padding: 10px;
 }
 
 .nav.left {
@@ -188,9 +259,9 @@ const onTouchEnd = (e) => {
 
 .nav:disabled {
   opacity: 0.3;
-  cursor: default;
 }
-/* 사진 번호 */
+
+/* 인덱스 */
 .counter {
   position: absolute;
   top: 20px;
@@ -200,16 +271,17 @@ const onTouchEnd = (e) => {
   opacity: 0.8;
 }
 
-/* 스와이프 중 스크롤 방지 */
-.viewer {
-  touch-action: pan-y;
+.toggle-btn {
+  margin-top: 16px;
+  padding: 10px 26px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.viewer-image {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 12px;
-  transition: transform 0.25s ease;
+.toggle-btn:hover {
+  background: #f5f5f5;
 }
-
 </style>

@@ -5,5 +5,27 @@
   <RouterView />
 </template>
 
-<style scoped>
+<style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white; /* wrapper랑 동일 */
+  min-height: 100%;
+}
+/* 스크롤바 숨기기 */
+body {
+  -ms-overflow-style: none;     /* IE */
+  scrollbar-width: none;        /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari */
+}
 </style>
+

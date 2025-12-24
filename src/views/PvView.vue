@@ -2,6 +2,7 @@
 import '@/assets/fonts.css'
 import GoToMainBtn from '@/components/GoToMainBtn.vue';
 import ourimg from '@/assets/private_img/image.png'
+import Copyright from '@/components/Copyright.vue';
 </script>
 
 <template>
@@ -13,6 +14,7 @@ import ourimg from '@/assets/private_img/image.png'
     <div class="sub-title">여러분들은 신랑, 신부의 "소중한" 지인들만 받을 수 있는</div>
     <div class="sub-title">모바일 청첩장에 오신걸 환영합니다!</div>
     <GoToMainBtn />
+    <Copyright />
   </div>
 </template>
 
@@ -24,7 +26,7 @@ import ourimg from '@/assets/private_img/image.png'
   margin: 0 auto;
   padding: 20px;
   font-family: 'Pretendard', sans-serif;
-  background: #fff7f0;
+  background: white;
   color: #333;
 }
 .title {
