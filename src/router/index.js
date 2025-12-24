@@ -13,8 +13,8 @@ const router = createRouter({
     {
       path: '/private',
       name: 'private',
-      component: PvView
-    }
+      component: PvView,
+    },
   ],
 })
 
