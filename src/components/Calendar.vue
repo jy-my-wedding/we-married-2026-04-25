@@ -8,10 +8,11 @@
   <div class="month">4</div>
   <div class="calendar-wrap">
     <v-calendar
-      :attributes="[{ key: 'wedding', dates: weddingDate, highlight: false }]"
+      :attributes="[{ key: 'wedding', dates: weddingDate, highlight: true }]"
       :show-nav="false"
       :min-date="weddingDate"
       :max-date="weddingDate"
+      :disabled-dates="[{ date: weddingDate, exclude: false }]"
     />
   </div>
 </template>
@@ -56,7 +57,11 @@
   /* 오늘, 선택 제거 */
   :deep(.vc-day.is-today .vc-day-content),
   :deep(.vc-day.is-selected .vc-day-content) {
-    background: none;
+    background: none !important;
+    color: inherit !important;
+  }
+  :deep(.vc-day.has-attr) {
+    pointer-events: none;
   }
 
   /* 결혼식 날짜 강조 */
@@ -65,6 +70,7 @@
     color: #ffffff;
     font-weight: 500;
   }
+
   /* 월 + 이동 버튼 전체 영역 */
   :deep(.vc-header) {
     display: none;

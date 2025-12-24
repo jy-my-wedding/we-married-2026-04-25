@@ -28,14 +28,6 @@
     display: none; /* Chrome, Safari */
   }
 
-  a,
-  a:visited,
-  a:active,
-  a:hover {
-    color: inherit !important;
-    text-decoration: none;
-  }
-
   button,
   button a,
   button span {

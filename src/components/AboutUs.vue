@@ -13,7 +13,7 @@
     </IntroCard>
     <IntroCard type="bride" name="이명은" :profileImg="brideImg">
       1998년 1월생<br />
-      요즘은 신부의 말을 잘 듣는 연습 중입니다.
+      요즘은 신랑을 이해하는 연습 중입니다.
     </IntroCard>
   </div>
 </template>

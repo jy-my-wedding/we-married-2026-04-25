@@ -36,7 +36,7 @@
     <Calendar />
     <Countdown />
   </div>
-  <div class="size_box invitation-wrapper">
+  <div class="size_box invitation-wrapper bg_white">
     <div class="title">Location</div>
     <Location />
   </div>
@@ -97,6 +97,6 @@
     background-color: #e6e6cd;
   }
   .size_box {
-    padding: 30px 0;
+    padding: 70px 0;
   }
 </style>

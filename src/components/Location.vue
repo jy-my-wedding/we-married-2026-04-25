@@ -1,15 +1,7 @@
 <script setup>
   import { ref } from 'vue'
   import '@/assets/fonts.css'
-  import NaverMap from '@/views/map/NaverMap.vue'
-  //import KakaoMap from '@/views/map/KakaoMap.vue'
-
-  const activeTab = ref('kakao') // 초기값 'kakao'
-
-  const setTab = (tab) => {
-    activeTab.value = tab
-  }
-
+  import KakaoMap from '@/components/KaKaoMap.vue'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   import { library } from '@fortawesome/fontawesome-svg-core'
   import { faBus, faTrainSubway } from '@fortawesome/free-solid-svg-icons'
@@ -23,18 +15,8 @@
     <p>서울특별시 송파구 천호대로 996</p>
   </section>
   <div class="map-tabs">
-    <div class="tab-header">
-      <button :class="{ active: activeTab === 'kakao' }" @click="setTab('kakao')">
-        카카오 지도
-      </button>
-      <button :class="{ active: activeTab === 'naver' }" @click="setTab('naver')">
-        네이버 지도
-      </button>
-    </div>
-
     <div class="map-content">
-      <KakaoMap v-if="activeTab === 'kakao'" />
-      <NaverMap v-else />
+      <KakaoMap />
     </div>
     <div class="location_text_body">
       <table class="info-table">
@@ -86,7 +68,7 @@
           <td>공항버스6200</td>
         </tr>
         <tr>
-          <td>자가용</td>
+          <td>자차</td>
           <td colspan="2">서울시 강동구 천호대로 1026-1</td>
         </tr>
         <tr>
@@ -117,6 +99,7 @@
     border-radius: 12px;
     margin-top: 24px;
     text-align: center;
+    font-family: 'ko_r', sans-serif;
   }
 
   .tab-header {
@@ -155,6 +138,7 @@
   .info-table {
     table-layout: fixed;
     padding: 0 10px;
+    font-size: 13px;
   }
   .info-table td {
     vertical-align: top;
@@ -172,7 +156,7 @@
   }
 
   .parking-caption {
-    margin-top: 26px;
+    margin-top: 50px;
     text-align: center;
 
     font-size: 13px;

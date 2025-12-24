@@ -14,7 +14,6 @@
   import { ref, onMounted, onUnmounted } from 'vue'
   import TMI from '@/components/private_page/TMI.vue'
   import QnA from '@/components/private_page/QnA.vue'
-  import Intro from '@/components/private_page/Intro.vue'
 
   const isVisible = ref(true)
 
@@ -41,8 +40,11 @@
       <img :src="ourimg" alt="test" class="img_1" />
     </div>
     <div class="title">안녕하세요!</div>
-    <div class="sub-title">여러분들은 신랑, 신부의 "소중한" 지인들만 받을 수 있는</div>
-    <div class="sub-title">모바일 청첩장에 오신걸 환영합니다!</div>
+    <div class="sub-title">
+      여러분들은 신랑, 신부의<br />
+      "소중한" 지인들만 받을 수 있는<br />
+      모바일 청첩장에 오신걸 환영합니다!
+    </div>
     <div class="explain">
       <p>
         이 페이지는<br />
@@ -53,7 +55,6 @@
         페이지 하단의 공식 청첩장 버튼을 눌러주세요 💍
       </p>
     </div>
-    <Intro />
     <TMI />
     <QnA />
     <GoToMainBtn />
