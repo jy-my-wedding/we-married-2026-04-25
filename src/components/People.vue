@@ -7,10 +7,7 @@ const props = defineProps({
   bank: { type: String, required: true },
   account: { type: String, required: true },
   profile_img: {type: String, required: true},
-  bgColor: {
-    type: String, 
-    required: true
-  },
+  bgColor: { type: String, required: true},
 })
 
 const copyToClipboard = async () => {

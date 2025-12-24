@@ -12,8 +12,8 @@ import Copyright from '@/components/Copyright.vue';
 </script>
 
 <template>
+  <Cover />
   <div class="invitation-wrapper">
-    <Cover />
     <div class="title">Invitation</div>
     <Info />
     <Calendar />
@@ -34,7 +34,7 @@ import Copyright from '@/components/Copyright.vue';
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 20px 20px 0 20px;
+  padding: 20px;
   font-family: 'Pretendard', sans-serif;
   background: white;
   color: #333;

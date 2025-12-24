@@ -1,8 +1,38 @@
 <script setup>
 import '@/assets/fonts.css'
-import GoToMainBtn from '@/components/GoToMainBtn.vue';
+import GoToMainBtn from '@/components/private_page/GoToMainBtn.vue';
 import ourimg from '@/assets/private_img/image.png'
 import Copyright from '@/components/Copyright.vue';
+
+const scrollToBottom = () => {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: 'smooth'
+  })
+}
+
+import { ref, onMounted, onUnmounted } from 'vue'
+import TMI from '@/components/private_page/TMI.vue';
+import QnA from '@/components/private_page/QnA.vue';
+import Intro from '@/components/private_page/Intro.vue';
+
+const isVisible = ref(true)
+
+const handleScroll = () => {
+  const scrollTop = window.scrollY
+  const windowHeight = window.innerHeight
+  const documentHeight = document.body.scrollHeight
+
+  isVisible.value = scrollTop + windowHeight < documentHeight - 50
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <template>
@@ -13,8 +43,26 @@ import Copyright from '@/components/Copyright.vue';
     <div class="title">안녕하세요!</div>
     <div class="sub-title">여러분들은 신랑, 신부의 "소중한" 지인들만 받을 수 있는</div>
     <div class="sub-title">모바일 청첩장에 오신걸 환영합니다!</div>
+    <div class="explain">
+      <p>이 페이지는<br>
+      ‘청첩장’이라기보다는  <br>
+      저희와 관련된 TMI 이야기들이 모여 있는 공간이에요!<br><br>
+
+      결혼식 정보가 필요하시면<br>
+      페이지 하단의 공식 청첩장 버튼을 눌러주세요 💍</p>
+    </div>
+    <Intro />
+    <TMI />
+    <QnA />
     <GoToMainBtn />
     <Copyright />
+    <button
+      v-if="isVisible"
+      class="scroll-down-btn"
+      @click="scrollToBottom"
+    >
+      ↓
+    </button>
   </div>
 </template>
 
@@ -26,7 +74,7 @@ import Copyright from '@/components/Copyright.vue';
   margin: 0 auto;
   padding: 20px;
   font-family: 'Pretendard', sans-serif;
-  background: white;
+  background: #eff7f0;
   color: #333;
 }
 .title {
@@ -47,6 +95,52 @@ import Copyright from '@/components/Copyright.vue';
 }
 .img_1 {
     width: 70%;
+}
+
+.explain {
+  margin: 70px 0;
+  font-family: 'modu', sans-serif;
+  text-align: center;
+  line-height: 1.3;
+  font-size: 19px;
+}
+.scroll-down-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  border: none;
+  background-color: rgba(0, 0, 0, 0.55);
+  color: white;
+  font-size: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999;
+  cursor: pointer;
+}
+
+.scroll-down-btn:active {
+  transform: scale(0.9);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.scroll-down-btn {
+  animation: bounce 1.6s infinite;
 }
 
 </style>

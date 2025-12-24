@@ -8,7 +8,7 @@
 <style>
 .copyright {
     text-align: center;
-    margin: 40px 0;
+    margin: 40px 0 20px 0;
     color: grey;
 }
 </style>

@@ -7,6 +7,7 @@
 </template>
 
 <script setup>
+import '@/assets/fonts.css'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const goToPrivate = () => {
@@ -23,5 +24,7 @@ button {
   width: 100%;
   border-radius: 10px;
   background-color: white;
+  font-weight: bold;
+  font-family: 'modu', sans-serif;
 }
 </style>
