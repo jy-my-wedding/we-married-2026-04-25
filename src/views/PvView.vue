@@ -1,8 +1,12 @@
 <script setup>
   import '@/assets/fonts.css'
-  import GoToMainBtn from '@/components/private_page/GoToMainBtn.vue'
+  import GoToMainBtn from '@/components/private/GoToMainBtn.vue'
   import ourimg from '@/assets/private_img/image.png'
-  import Copyright from '@/components/Copyright.vue'
+  import Copyright from '@/components/common/Copyright.vue'
+  import { ref, onMounted, onUnmounted } from 'vue'
+  import TMI from '@/components/private/TMI.vue'
+  import QnA from '@/components/private/QnA.vue'
+  import HamburgerMenu from '@/components/common/HamburgerMenu.vue'
 
   const scrollToBottom = () => {
     window.scrollTo({
@@ -10,10 +14,6 @@
       behavior: 'smooth',
     })
   }
-
-  import { ref, onMounted, onUnmounted } from 'vue'
-  import TMI from '@/components/private_page/TMI.vue'
-  import QnA from '@/components/private_page/QnA.vue'
 
   const isVisible = ref(true)
 
@@ -32,9 +32,15 @@
   onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
   })
+
+  const menuItems = [
+    { id: 'tmi', label: 'TMI' },
+    { id: 'qna', label: 'QnA' },
+  ]
 </script>
 
 <template>
+  <HamburgerMenu :menu-items="menuItems" />
   <div class="invitation-wrapper">
     <div class="image_box">
       <img :src="ourimg" alt="test" class="img_1" />
@@ -47,16 +53,18 @@
     </div>
     <div class="explain">
       <p>
-        이 페이지는<br />
-        ‘청첩장’이라기보다는 <br />
+        이 페이지는 ‘청첩장’이라기보다는 <br />
         저희와 관련된 TMI 이야기들이 모여 있는 공간이에요!<br /><br />
 
         결혼식 정보가 필요하시면<br />
         페이지 하단의 공식 청첩장 버튼을 눌러주세요 💍
       </p>
+      <br />
+      <br />
+      <h2>그럼 Start!</h2>
     </div>
-    <TMI />
-    <QnA />
+    <div id="tmi"><TMI /></div>
+    <div id="qna"><QnA /></div>
     <GoToMainBtn />
     <Copyright />
     <button v-if="isVisible" class="scroll-down-btn" @click="scrollToBottom">↓</button>
@@ -98,7 +106,7 @@
     margin: 70px 0;
     font-family: 'modu', sans-serif;
     text-align: center;
-    line-height: 1.3;
+    line-height: 1.6;
     font-size: 19px;
   }
   .scroll-down-btn {

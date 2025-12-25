@@ -1,12 +1,12 @@
 <script setup>
   import { ref } from 'vue'
   import '@/assets/fonts.css'
-  import KakaoMap from '@/components/KaKaoMap.vue'
+  import KakaoMap from '@/components/public/KaKaoMap.vue'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faBus, faTrainSubway } from '@fortawesome/free-solid-svg-icons'
+  import { faBus, faTrainSubway, faCarRear } from '@fortawesome/free-solid-svg-icons'
 
-  library.add(faBus, faTrainSubway)
+  library.add(faBus, faTrainSubway, faCarRear)
 </script>
 
 <template>
@@ -22,7 +22,7 @@
       <table class="info-table">
         <tr>
           <td>지하철</td>
-          <td colspan="2">천호역 10번 출구 바로 앞</td>
+          <td colspan="2" class="b_t">천호역 10번 출구 바로 앞</td>
         </tr>
         <tr>
           <td></td>
@@ -40,7 +40,7 @@
         </tr>
         <tr>
           <td>버스</td>
-          <td colspan="2">천호역 또는 천호사거리 하차</td>
+          <td colspan="2" class="b_t">천호역 또는 천호사거리 하차</td>
         </tr>
         <tr>
           <td></td>
@@ -69,12 +69,12 @@
         </tr>
         <tr>
           <td>자차</td>
-          <td colspan="2">서울시 강동구 천호대로 1026-1</td>
+          <td colspan="2" class="b_t">서울시 강동구 천호대로 1026-1</td>
         </tr>
         <tr>
           <td></td>
           <td>
-            <FontAwesomeIcon icon="fa-solid fa-train-subway" class="icon" style="color: #833edb" />
+            <FontAwesomeIcon icon="fa-solid fa-car-rear" class="icon" style="color: #5d5d5d" />
           </td>
           <td>
             천호역 6번출구 앞 천호 입구 공영주차장 지하1,2층 <br />
@@ -143,6 +143,10 @@
   .info-table td {
     vertical-align: top;
     height: 25px;
+    line-height: 1.6;
+  }
+  .info-table .b_t {
+    font-weight: bold;
   }
   .info-table td:nth-child(1) {
     width: 50px;

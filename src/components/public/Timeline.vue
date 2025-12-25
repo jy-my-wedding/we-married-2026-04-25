@@ -1,5 +1,5 @@
 <script setup>
-  import TimelineItem from '@/components/TimelineItem.vue'
+  import TimelineItem from '@/components/public/TimelineItem.vue'
   import Img1 from '@/assets/photo/wedding/timeline/1.jpeg'
   import Img2 from '@/assets/photo/wedding/timeline/2.jpeg'
   import Img3 from '@/assets/photo/wedding/timeline/3.jpeg'

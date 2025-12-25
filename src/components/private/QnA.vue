@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import Title from '@/components/private_page/Title.vue'
+  import Title from '@/components/private/Title.vue'
   import '@/assets/fonts.css'
   import { ref } from 'vue'
 
@@ -65,12 +65,12 @@
         <div v-if="openIndexes.includes(index)" class="answer">
           <div class="answer-block groom">
             <div class="qbadge">신랑</div>
-            <p>{{ item.a.groom }}</p>
+            <p>A. {{ item.a.groom }}</p>
           </div>
 
           <div class="answer-block bride">
             <div class="qbadge">신부</div>
-            <p>{{ item.a.bride }}</p>
+            <p>A. {{ item.a.bride }}</p>
           </div>
         </div>
       </Transition>

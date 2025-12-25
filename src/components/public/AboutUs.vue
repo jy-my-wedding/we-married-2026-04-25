@@ -1,6 +1,6 @@
 <script setup>
   import '@/assets/fonts.css'
-  import IntroCard from '@/components/IntroCard.vue'
+  import IntroCard from '@/components/public/IntroCard.vue'
   import groomImg from '@/assets/photo/wedding/groom.png'
   import brideImg from '@/assets/photo/wedding/bride.png'
 </script>

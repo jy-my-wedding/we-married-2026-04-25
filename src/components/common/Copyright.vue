@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+  import '@/assets/fonts.css'
+</script>
 
 <template>
   <div class="copyright">Made by 신부 이명은</div>
@@ -7,7 +9,8 @@
 <style>
   .copyright {
     text-align: center;
-    margin: 40px 0 20px 0;
+    padding: 0 0 20px 0;
     color: grey;
+    font-family: 'ko_r', sans-serif;
   }
 </style>
