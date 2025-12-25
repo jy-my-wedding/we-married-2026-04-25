@@ -171,7 +171,7 @@
   }
   .role_box {
     width: 20%;
-    text-align: center;
+    text-align: left;
     height: auto;
     vertical-align: middle;
     display: flex;

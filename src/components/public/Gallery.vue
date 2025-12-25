@@ -1,5 +1,11 @@
 <script setup>
   import { ref, computed } from 'vue'
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+  import { library } from '@fortawesome/fontawesome-svg-core'
+  import { faChevronLeft, faChevronRight, faXmark } from '@fortawesome/free-solid-svg-icons'
+
+  /* 라이브러리에 아이콘 등록 */
+  library.add(faChevronLeft, faChevronRight, faXmark)
 
   /* =====================
    1. 이미지 로드
@@ -143,7 +149,9 @@
     <div class="counter">{{ currentIndex + 1 }} / {{ fullImages.length }}</div>
 
     <!-- left -->
-    <button class="nav left" @click="prevImage" :disabled="currentIndex === 0">‹</button>
+    <button class="nav left" @click="prevImage" :disabled="currentIndex === 0">
+      <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
+    </button>
 
     <!-- image -->
     <img
@@ -155,7 +163,7 @@
 
     <!-- right -->
     <button class="nav right" @click="nextImage" :disabled="currentIndex === fullImages.length - 1">
-      ›
+      <FontAwesomeIcon icon="fa-solid fa-chevron-right" />
     </button>
   </div>
 </template>
@@ -208,27 +216,48 @@
   }
 
   /* 닫기 */
-  .close {
+  .viewer .close {
     position: absolute;
     top: 20px;
     right: 20px;
     font-size: 32px;
     background: none;
-    color: white;
+    color: white !important;
     border: none;
     cursor: pointer;
+    z-index: 9999;
   }
 
   /* 좌우 */
   .nav {
+    width: 48px;
+    height: 48px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 40px;
-    background: none;
-    color: white;
+    font-size: 14px; /* 아이콘 크기 조정 */
+    background: rgba(0, 0, 0, 0.3);
+    color: white !important;
     border: none;
     cursor: pointer;
+    z-index: 9999;
+    border-radius: 50%;
+
+    display: flex; /* 아이콘 중앙 정렬 */
+    align-items: center;
+    justify-content: center;
+
+    /* padding 제거 */
+    padding: 0;
+
+    transition:
+      background 0.2s,
+      transform 0.2s;
+  }
+
+  .nav:hover {
+    background: rgba(0, 0, 0, 0.5);
+    transform: translateY(-50%) scale(1.1);
   }
 
   .nav.left {
