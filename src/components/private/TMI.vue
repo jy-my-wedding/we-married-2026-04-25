@@ -3,7 +3,7 @@
   import Title from '@/components/private/Title.vue'
   import { computed } from 'vue'
   import img1 from '@/assets/private_img/we1.png'
-  import img2 from '@/assets/private_img/we2.jpeg'
+  import img2 from '@/assets/private_img/we2.png'
   import img3 from '@/assets/private_img/w3.png'
 
   import nimg1 from '@/assets/private_img/t1.jpeg'
@@ -138,7 +138,7 @@
       그날의 자리를 함께해 주시면<br />
       더없이 기쁠 것 같습니다<br /><br /><br />
     </div>
-    <div class="talk hilight">저희 잘 살아보겠습니다! 감사합니다!<br /><br /></div>
+    <div class="talk hilight">저희 잘 살아보겠습니다!<br />감사합니다!<br /><br /></div>
   </div>
 </template>
 
