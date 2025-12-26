@@ -1,6 +1,7 @@
 <script setup>
   import '@/assets/fonts.css'
   import GoToMainBtn from '@/components/private/GoToMainBtn.vue'
+  import Title from '@/components/private/Title.vue'
   import ourimg from '@/assets/private_img/image.png'
   import Copyright from '@/components/common/Copyright.vue'
   import { ref, onMounted, onUnmounted } from 'vue'
@@ -65,6 +66,12 @@
     </div>
     <div id="tmi"><TMI /></div>
     <div id="qna"><QnA /></div>
+    <Title>마지막으로</Title>
+    <div class="explain">
+      여기까지 읽어주셔서 감사합니다! <br />
+      우리의 중요한 날 <br />
+      함께해 주신다면 큰 힘이 될 것 같아요!
+    </div>
     <GoToMainBtn />
     <Copyright />
     <button v-if="isVisible" class="scroll-down-btn" @click="scrollToBottom">↓</button>

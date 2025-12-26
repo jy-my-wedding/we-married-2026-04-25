@@ -82,14 +82,14 @@
       <Transition name="slide">
         <div v-if="openIndexes.includes(index)" class="answer">
           <div class="answer-block groom">
-            <div class="qbadge">신랑</div>
+            <div class="qbadge">준영</div>
             <p>
               <div>A. </div><div>{{ item.a.groom }}</div>
             </p>
           </div>
 
           <div class="answer-block bride">
-            <div class="qbadge">신부</div>
+            <div class="qbadge">명은</div>
             <p>
               <div>A. </div><div>{{ item.a.bride }}</div>
             </p>
