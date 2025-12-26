@@ -8,23 +8,23 @@
   const timeline = [
     {
       image: Img1,
-      title: '2016년 3월 첫만남',
-      desc: '대학교 입학',
+      title: '설레는 첫 만남',
+      desc: '2016년, 새내기 시절 시작된 이야기',
     },
     {
       image: Img2,
-      title: '고무신',
+      title: '기다림의 시간',
       desc: '길면 길고 짧으면 짧았던 633일',
     },
     {
       image: Img3,
-      title: '25년 1월 약속 지키기',
-      desc: '20살에 했던 10년뒤 결혼 진행',
+      title: '함께한 소중한 날들',
+      desc: '웃음과 추억이 일상이 된 순간들',
     },
     {
       image: Img4,
-      title: '26년 4월 25일',
-      desc: '이제 가족이 됩니다',
+      title: '드디어 결혼',
+      desc: '2026년 4월 25일, 이제는 가족이 됩니다',
     },
   ]
 </script>
@@ -44,6 +44,6 @@
   .timeline {
     display: flex;
     flex-direction: column;
-    padding: 0 20px;
+    padding: 20px 0 0;
   }
 </style>

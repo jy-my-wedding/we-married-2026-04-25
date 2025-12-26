@@ -40,7 +40,7 @@
     border-radius: 16px;
     padding: 20px;
     margin-bottom: 20px;
-
+    width: 300px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
     position: relative;
   }

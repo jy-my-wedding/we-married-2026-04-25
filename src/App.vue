@@ -15,8 +15,15 @@
   body {
     margin: 0;
     padding: 0;
-    background: #eff7f0; /* wrapper랑 동일 */
+    /* background: #eff7f0; wrapper랑 동일 */
     min-height: 100%;
+  }
+  body.public-bg {
+    background: #eff7f0; /* 공식 청첩장 */
+  }
+
+  body.private-bg {
+    background: #f6f6f6; /* 지인용 */
   }
   /* 스크롤바 숨기기 */
   body {

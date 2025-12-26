@@ -60,7 +60,7 @@
     width: 300px;
     background: #fff;
     border-radius: 14px;
-    padding: 14px 16px;
+    padding: 5px 14px;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
     display: flex;
     align-items: center;

@@ -9,11 +9,13 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      meta: { bodyClass: 'public-bg' },
     },
     {
       path: '/private',
       name: 'private',
       component: PvView,
+      meta: { bodyClass: 'private-bg' },
     },
   ],
   scrollBehavior(to, from, savedPosition) {
@@ -22,6 +24,13 @@ const router = createRouter({
     }
     return { top: 0 }
   },
+})
+
+router.afterEach((to) => {
+  document.body.className = ''
+  if (to.meta.bodyClass) {
+    document.body.classList.add(to.meta.bodyClass)
+  }
 })
 
 export default router

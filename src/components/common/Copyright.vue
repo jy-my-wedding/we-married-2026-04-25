@@ -11,6 +11,6 @@
     text-align: center;
     padding: 0 0 20px 0;
     color: grey;
-    font-family: 'ko_r', sans-serif;
+    font-family: 'modu', sans-serif;
   }
 </style>

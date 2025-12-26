@@ -79,7 +79,6 @@
     margin: 0 auto;
     padding: 20px;
     font-family: 'Pretendard', sans-serif;
-    background: #eff7f0;
     color: #333;
   }
   .title {
