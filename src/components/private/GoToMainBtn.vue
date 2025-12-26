@@ -16,30 +16,28 @@
 <style scoped>
   button {
     margin: 20px 0;
-    padding: 12px 24px; /* 클릭 영역 확보 */
+    padding: 12px 24px;
+    width: 100%;
+
     font-size: 16px;
     font-weight: 600;
     font-family: 'modu', sans-serif;
+
+    border-radius: 14px;
     cursor: pointer;
-    width: 100%;
-    border-radius: 12px;
 
-    /* 배경: 연한 크림색, 글자 진한 초콜릿 */
-    background-color: #fff9f0;
-    color: #3f3530;
-    border: 2px solid #ffffff; /* 테두리 살짝 유지 */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 살짝 떠있는 느낌 */
+    background-color: #ffffff; /* 배경보다 살짝 밝은 화이트 */
+    color: #444444;
 
-    /* 부드러운 전환 */
-    transition:
-      background 0.2s,
-      transform 0.2s,
-      box-shadow 0.2s;
+    border: 1.5px solid #dcdcdc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+
+    transition: all 0.25s ease;
   }
 
   button:hover {
-    background-color: #fff4e0; /* 호버 시 조금 더 진한 크림색 */
-    transform: translateY(-2px); /* 살짝 떠 있는 느낌 */
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
   }
 </style>
