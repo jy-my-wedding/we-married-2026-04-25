@@ -129,6 +129,7 @@
   .family-section {
     max-width: 400px;
     margin: 0 auto;
+    padding: 0 20px;
     font-family: 'KoPubWorld', sans-serif;
   }
 
@@ -156,7 +157,6 @@
   /* 클릭된 상태 */
   .group-btn.active {
     border-radius: 8px 8px 0 0;
-    border-bottom: 1px solid #8c8c8c; /* 열린 토글 밑에 선 추가 */
   }
 
   /* 열린 그룹 영역 */

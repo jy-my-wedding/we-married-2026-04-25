@@ -29,7 +29,7 @@
     margin: 40px 0;
   }
   .ab_box {
-    width: 380px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
