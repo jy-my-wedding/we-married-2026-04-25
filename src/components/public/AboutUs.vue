@@ -8,8 +8,8 @@
   <div class="ab_text">저희 커플을 소개합니다!</div>
   <div class="ab_box">
     <IntroCard type="groom" name="박준영" :profileImg="groomImg">
-      19997년 7월생<br />
-      게임를 좋아하는 ISTP <br />
+      1997년 7월생<br />
+      게임을 좋아하는 ISTP <br />
       말투에 영혼이 없어보이지만 항상 진심입니다<br />
       오늘부터 평생의 파티원이 생겼습니다<br />
     </IntroCard>
