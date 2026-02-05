@@ -52,8 +52,8 @@
         {
           role: '어머니',
           name: '강미숙',
-          bank: '농협',
-          account: '018-12-180860',
+          bank: '신한',
+          account: '110-247-277765',
           img: BrideImg,
         },
         {
