@@ -53,51 +53,55 @@
     <div class="talk">얼마나 안맞냐면,,,</div>
     <div class="talk">
       <table class="dif_table">
-        <tr>
-          <th></th>
-          <th>준영</th>
-          <th>명은</th>
-        </tr>
-        <tr>
-          <td>MBTI</td>
-          <td>ISTP</td>
-          <td>ENFP</td>
-        </tr>
-        <tr>
-          <td>활동유형</td>
-          <td>집돌이</td>
-          <td>바깥순이</td>
-        </tr>
-        <tr>
-          <td>날씨</td>
-          <td>더위에 약함</td>
-          <td>추위에 약함</td>
-        </tr>
-        <tr>
-          <td>찌개</td>
-          <td>김치찌개파</td>
-          <td>된장찌개파</td>
-        </tr>
-        <tr>
-          <td>초콜릿</td>
-          <td>좋아함</td>
-          <td>안좋아함</td>
-        </tr>
-        <tr>
-          <td>운동</td>
-          <td>공놀이</td>
-          <td>맨몸 운동</td>
-        </tr>
-        <tr>
-          <td>보드게임</td>
-          <td>뇌지컬</td>
-          <td>피지컬</td>
-        </tr>
-        <tr>
-          <td>샤프심</td>
-          <td>HB</td>
-          <td>B</td>
-        </tr>
+        <thead>
+          <tr>
+            <th></th>
+            <th>준영</th>
+            <th>명은</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MBTI</td>
+            <td>ISTP</td>
+            <td>ENFP</td>
+          </tr>
+          <tr>
+            <td>활동유형</td>
+            <td>집돌이</td>
+            <td>바깥순이</td>
+          </tr>
+          <tr>
+            <td>날씨</td>
+            <td>더위에 약함</td>
+            <td>추위에 약함</td>
+          </tr>
+          <tr>
+            <td>찌개</td>
+            <td>김치찌개파</td>
+            <td>된장찌개파</td>
+          </tr>
+          <tr>
+            <td>초콜릿</td>
+            <td>좋아함</td>
+            <td>안좋아함</td>
+          </tr>
+          <tr>
+            <td>운동</td>
+            <td>공놀이</td>
+            <td>맨몸 운동</td>
+          </tr>
+          <tr>
+            <td>보드게임</td>
+            <td>뇌지컬</td>
+            <td>피지컬</td>
+          </tr>
+          <tr>
+            <td>샤프심</td>
+            <td>HB</td>
+            <td>B</td>
+          </tr>
+        </tbody>
       </table>
     </div>
     <div class="talk">.<br />.<br />.</div>
