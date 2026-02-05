@@ -4,6 +4,10 @@
   import { library } from '@fortawesome/fontawesome-svg-core'
   import { faCopy } from '@fortawesome/free-regular-svg-icons'
   import GroomImg from '@/assets/photo/wedding/groom.png'
+  import j1 from '@/assets/photo/wedding/j1.png'
+  import j2 from '@/assets/photo/wedding/j2.png'
+  import m1 from '@/assets/photo/wedding/m1.png'
+  import m2 from '@/assets/photo/wedding/m2.png'
   import BrideImg from '@/assets/photo/wedding/bride.png'
 
   library.add(faCopy)
@@ -19,14 +23,14 @@
           name: '박승준',
           bank: '농협',
           account: '352-1733-2958-23',
-          img: GroomImg,
+          img: j1,
         },
         {
           role: '어머니',
           name: '김미자',
           bank: '농협',
           account: '957-12-375313',
-          img: GroomImg,
+          img: j2,
         },
         {
           role: '신랑',
@@ -47,14 +51,14 @@
           name: '이승준',
           bank: '국민',
           account: '038701-04-577887',
-          img: BrideImg,
+          img: m1,
         },
         {
           role: '어머니',
           name: '강미숙',
           bank: '신한',
           account: '110-247-277765',
-          img: BrideImg,
+          img: m2,
         },
         {
           role: '신부',
