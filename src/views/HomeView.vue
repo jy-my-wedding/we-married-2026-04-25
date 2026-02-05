@@ -11,6 +11,7 @@
   import HamburgerMenu from '@/components/common/HamburgerMenu.vue'
   import AboutUs from '@/components/public/AboutUs.vue'
   import Timeline from '@/components/public/Timeline.vue'
+  import AudioPlayer from '@/components/private/AudioPlayer.vue'
 
   const menuItems = [
     { id: 'Invitation', label: 'Invitation' },
@@ -25,6 +26,7 @@
 
 <template>
   <HamburgerMenu :menu-items="menuItems" />
+  <AudioPlayer />
   <Cover />
   <div class="invitation-wrapper bg_white">
     <div class="c_text">박준영 · 이명은</div>
