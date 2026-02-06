@@ -1,6 +1,5 @@
 <script>
   import '@/assets/fonts.css'
-  console.log('뭐야')
 </script>
 <template>
   <div class="box">
