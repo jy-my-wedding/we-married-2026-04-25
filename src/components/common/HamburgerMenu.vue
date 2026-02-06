@@ -48,7 +48,7 @@
   .hamburger {
     position: fixed;
     top: 20px;
-    left: 20px;
+    left: 12px;
     z-index: 100;
     font-size: 24px;
     background: rgba(255, 255, 255, 0.6); /* 반투명 */
@@ -63,8 +63,8 @@
   /* 드롭다운 메뉴 */
   .menu {
     position: fixed;
-    top: 70px; /* 버튼 아래에서 시작 */
-    left: 20px;
+    top: 20px; /* 버튼 아래에서 시작 */
+    left: 60px;
     width: 200px;
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
