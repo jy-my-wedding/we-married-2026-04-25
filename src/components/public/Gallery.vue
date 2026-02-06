@@ -11,20 +11,24 @@
    1. 이미지 로드
 ===================== */
   // 썸네일
-  const thumbs = Object.values(
+  const thumbs = Object.entries(
     import.meta.glob('/src/assets/photo/wedding/thumbnail/*.{jpg,jpeg,png,webp}', {
       eager: true,
       import: 'default',
     })
   )
+    .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+    .map(([, src]) => src)
 
   // 원본
-  const fullImages = Object.values(
+  const fullImages = Object.entries(
     import.meta.glob('/src/assets/photo/wedding/thumbnail/*.{jpg,jpeg,png,webp}', {
       eager: true,
       import: 'default',
     })
   )
+    .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+    .map(([, src]) => src)
 
   /* =====================
    2. 갤러리 토글 (더보기)
