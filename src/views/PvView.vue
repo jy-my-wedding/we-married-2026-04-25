@@ -69,7 +69,9 @@
     <Title></Title>
     <GoToMainBtn />
     <Copyright />
-    <button v-if="isVisible" class="scroll-down-btn" @click="scrollToBottom">↓</button>
+    <button v-if="isVisible" class="scroll-down-btn" @click="scrollToBottom">
+      <span class="arrow">↓</span>
+    </button>
   </div>
 </template>
 
@@ -121,7 +123,7 @@
 
     border: none;
     background-color: rgba(0, 0, 0, 0.55);
-    color: white;
+    color: white !important;
     font-size: 20px;
 
     display: flex;
@@ -130,6 +132,10 @@
 
     z-index: 999;
     cursor: pointer;
+  }
+  .scroll-down-btn .arrow {
+    position: relative;
+    top: -2px; /* 여기서 -1px ~ -3px로 눈에 맞게 조절 */
   }
 
   .scroll-down-btn:active {
