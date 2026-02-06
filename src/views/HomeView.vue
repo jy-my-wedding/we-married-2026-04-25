@@ -24,19 +24,19 @@
     { id: 'Cash', label: 'For Your Kind Wishes' },
   ]
 
-  let observer = null;
+  let observer = null
 
   onMounted(() => {
-    const revealElements = document.querySelectorAll('.reveal');
+    const revealElements = document.querySelectorAll('.reveal')
 
     const options = {
       threshold: 0.2,
-    };
+    }
 
     observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('show');
+          entry.target.classList.add('show')
           /**
            * // 한 번 나타난 후에는 관찰 중지하게 하려면 주석 해제
            * observer.unobserve(entry.target);
@@ -45,21 +45,20 @@
           /**
            * 한 번 나타난 후에도 다시 사라졌다가 나타나게 하려면 이 부분 유지
            */
-          entry.target.classList.remove('show');
-          
+          entry.target.classList.remove('show')
         }
-      });
-    }, options);
+      })
+    }, options)
 
     revealElements.forEach((el) => {
-      observer.observe(el);
-    });
-  });
+      observer.observe(el)
+    })
+  })
 </script>
 
 <template>
   <HamburgerMenu :menu-items="menuItems" />
-  <AudioPlayer />
+  <AudioPlayer type="main" />
   <Cover id="Invitation" />
   <div class="invitation-wrapper bg_white">
     <div class="c_text">박준영 · 이명은</div>

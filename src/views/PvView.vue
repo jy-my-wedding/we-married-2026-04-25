@@ -8,6 +8,7 @@
   import TMI from '@/components/private/TMI.vue'
   import QnA from '@/components/private/QnA.vue'
   import HamburgerMenu from '@/components/common/HamburgerMenu.vue'
+  import AudioPlayer from '@/components/public/AudioPlayer.vue'
 
   const scrollToBottom = () => {
     window.scrollTo({
@@ -42,6 +43,7 @@
 
 <template>
   <HamburgerMenu :menu-items="menuItems" />
+  <AudioPlayer type="pv" />
   <div class="invitation-wrapper">
     <div class="image_box">
       <img :src="ourimg" alt="test" class="img_1" />
