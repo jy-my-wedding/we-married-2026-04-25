@@ -12,6 +12,7 @@
   import AboutUs from '@/components/public/AboutUs.vue'
   import Timeline from '@/components/public/Timeline.vue'
   import AudioPlayer from '@/components/private/AudioPlayer.vue'
+  import { onMounted } from 'vue'
 
   const menuItems = [
     { id: 'Invitation', label: 'Invitation' },
@@ -22,45 +23,82 @@
     { id: 'Gallery', label: 'Gallery' },
     { id: 'Cash', label: 'For Your Kind Wishes' },
   ]
+
+  let observer = null;
+
+  onMounted(() => {
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const options = {
+      threshold: 0.2,
+    };
+
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          /**
+           * // 한 번 나타난 후에는 관찰 중지하게 하려면 주석 해제
+           * observer.unobserve(entry.target);
+           */
+        } else {
+          /**
+           * 한 번 나타난 후에도 다시 사라졌다가 나타나게 하려면 이 부분 유지
+           */
+          entry.target.classList.remove('show');
+          
+        }
+      });
+    }, options);
+
+    revealElements.forEach((el) => {
+      observer.observe(el);
+    });
+  });
 </script>
 
 <template>
   <HamburgerMenu :menu-items="menuItems" />
   <AudioPlayer />
-  <Cover />
+  <Cover id="Invitation" />
   <div class="invitation-wrapper bg_white">
     <div class="c_text">박준영 · 이명은</div>
     <div class="c_box">
       <div class="c_title">2026년 4월 25일 토요일 오후 5시</div>
       <div class="csub_title">라비니움 1층 리츄얼홀</div>
     </div>
-    <div class="title" id="Invitation">Invitation</div>
+    <div class="title">Invitation</div>
     <Info />
   </div>
-  <div class="size_box invitation-wrapper">
+  <div class="size_box invitation-wrapper reveal">
     <div class="title" id="AboutUs">About Us</div>
     <AboutUs />
   </div>
-  <div class="invitation-wrapper bg_green size_box">
+  <div class="invitation-wrapper bg_green size_box reveal">
     <div class="title" id="OurTimeline">Our Timeline</div>
     <Timeline />
   </div>
-  <div class="invitation-wrapper size_box bg_white">
+  <div class="invitation-wrapper size_box bg_whitereveal reveal">
     <div class="title" id="WeddingDay">Wedding Day</div>
     <Calendar />
     <Countdown />
   </div>
   <div class="size_box invitation-wrapper bg_white">
-    <div class="title" id="Location">Location</div>
-    <Location />
-  </div>
-  <div class="size_box invitation-wrapper bg_white">
-    <div class="title">Gallery</div>
-    <Gallery />
-  </div>
-  <div class="size_box bg_white invitation-wrapper">
-    <div class="title" id="Cash">For Your Kind Wishes</div>
-    <AccountCard />
+    <!-- 
+      스크롤 애니메이션 적용 시 배경색(흰색) 깨지는 문제 방지
+    -->
+    <div class="size_box invitation-wrapper bg_white reveal">
+      <div class="title" id="Location">Location</div>
+      <Location />
+    </div>
+    <div class="size_box invitation-wrapper bg_white reveal">
+      <div class="title">Gallery</div>
+      <Gallery />
+    </div>
+    <div class="size_box bg_white invitation-wrapper reveal">
+      <div class="title" id="Cash">For Your Kind Wishes</div>
+      <AccountCard />
+    </div>
   </div>
   <div class="bg_white invitation-wrapper" style="padding-bottom: 30px">
     <Copyright />
@@ -68,6 +106,17 @@
 </template>
 
 <style scoped>
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+      all 0.8s ease,
+      transform 0.8s ease;
+  }
+  .reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
   .invitation-wrapper {
     display: block;
     width: 100%;
