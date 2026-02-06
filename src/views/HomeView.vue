@@ -11,7 +11,7 @@
   import HamburgerMenu from '@/components/common/HamburgerMenu.vue'
   import AboutUs from '@/components/public/AboutUs.vue'
   import Timeline from '@/components/public/Timeline.vue'
-  import AudioPlayer from '@/components/private/AudioPlayer.vue'
+  import AudioPlayer from '@/components/public/AudioPlayer.vue'
   import { onMounted } from 'vue'
 
   const menuItems = [
