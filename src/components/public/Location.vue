@@ -1,7 +1,7 @@
 <script setup>
   import { ref } from 'vue'
   import '@/assets/fonts.css'
-  import KakaoMap from '@/components/public/KaKaoMap.vue'
+  import Labinium from '@/components/public/labinium.vue'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   import { library } from '@fortawesome/fontawesome-svg-core'
   import { faBus, faTrainSubway, faCarRear } from '@fortawesome/free-solid-svg-icons'
@@ -18,14 +18,14 @@
     }
   }
 
-  const adress = '서울특별시 송파구 천호대로 996'
+  const address = '서울특별시 송파구 천호대로 996'
 </script>
 
 <template>
   <section class="info-section">
     <p>라비니움 웨딩홀</p>
     <p>
-      {{ adress }}
+      {{ address }}
       <button class="copy-btn" @click="copyAddress(address)">
         <FontAwesomeIcon icon="fa-regular fa-copy" />
       </button>
@@ -33,7 +33,7 @@
   </section>
   <div class="map-tabs">
     <div class="map-content">
-      <KakaoMap />
+      <Labinium />
     </div>
     <div class="location_text_body">
       <table class="info-table">

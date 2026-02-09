@@ -2,6 +2,7 @@
   import Cover from '@/components/public/Cover.vue'
   import Gallery from '@/components/public/Gallery.vue'
   import Info from '@/components/public/Info.vue'
+  import Reception from '@/components/public/Reception.vue'
   import Location from '@/components/public/Location.vue'
   import Calendar from '@/components/public/Calendar.vue'
   import Countdown from '@/components/public/Countdown.vue'
@@ -89,6 +90,10 @@
     <div class="size_box invitation-wrapper bg_white reveal">
       <div class="title" id="Location">Location</div>
       <Location />
+    </div>
+    <div class="size_box invitation-wrapper bg_white reveal">
+      <div class="title" id="Reception">Wedding Reception</div>
+      <Reception />
     </div>
     <div class="size_box invitation-wrapper bg_white reveal">
       <div class="title">Gallery</div>
