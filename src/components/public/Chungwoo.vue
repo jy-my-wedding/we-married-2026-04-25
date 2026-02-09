@@ -6,8 +6,8 @@
   // ======= 예식장 정보 =======
   const PLACE_NAME = '청우 가든'
   const ADDRESS = '제주 제주시 조천읍 일주동로 792'
-  const LAT = 37.538497
-  const LNG = 127.122412
+  const LAT = 33.530839
+  const LNG = 126.625927
   // ===========================
 
   onMounted(() => {

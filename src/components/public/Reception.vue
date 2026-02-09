@@ -19,6 +19,7 @@
 <template>
   <section class="info-section">
     <p>2026년 4월 11일 토요일 11:00 ~ 18:00</p>
+    <br />
     <p>청우 가든</p>
     <p>
       {{ address }}
@@ -31,6 +32,17 @@
     <div class="map-content">
       <Chungwoo />
     </div>
+  </div>
+  <div class="parking-notice-classic">
+    <p class="parking-caption">
+      <span> Notice</span><br />
+      결혼식과 피로연은 각각 다른 날짜와 장소에서 진행됩니다.<br />
+      혼동 없으시도록 일정과 장소를 꼭 확인 부탁드립니다.<br />
+      <br />
+      예식 참석이 어려우신 분들께서는<br />
+      피로연 자리에서 따뜻한 축하로 함께해 주시면<br />
+      큰 기쁨이 되겠습니다.<br />
+    </p>
   </div>
 </template>
 

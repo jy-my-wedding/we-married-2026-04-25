@@ -132,7 +132,7 @@
 <style scoped>
   .family-section {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 0 20px;
     font-family: 'KoPubWorld', sans-serif;
   }

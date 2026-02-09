@@ -21,6 +21,7 @@
     { id: 'OurTimeline', label: 'Our Timeline' },
     { id: 'WeddingDay', label: 'Wedding Day' },
     { id: 'Location', label: 'Location' },
+    { id: 'Reception', label: 'Wedding Reception' },
     { id: 'Gallery', label: 'Gallery' },
     { id: 'Cash', label: 'For Your Kind Wishes' },
   ]
@@ -101,6 +102,13 @@
     </div>
     <div class="size_box bg_white invitation-wrapper reveal">
       <div class="title" id="Cash">For Your Kind Wishes</div>
+      <div class="parking-notice-classic">
+        <p class="parking-caption">
+          <span> Notice</span><br />
+          양가 부모님 성함이 유사하여<br />
+          계좌번호 선택 시 수취인 성함을 꼭 확인해 주시길 부탁드립니다.
+        </p>
+      </div>
       <AccountCard />
     </div>
   </div>
@@ -166,5 +174,22 @@
   }
   .size_box {
     padding: 70px 0;
+  }
+  .parking-caption {
+    text-align: center;
+
+    font-size: 13px;
+    line-height: 1.8;
+    color: #6f625b;
+  }
+
+  .parking-caption span {
+    display: block;
+    margin-bottom: 4px;
+
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #b0a39c;
   }
 </style>
