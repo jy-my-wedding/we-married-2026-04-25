@@ -108,4 +108,18 @@
     cursor: pointer;
     content-visibility: auto;
   }
+
+  .toggle-btn {
+    margin-top: 16px;
+    padding: 10px 26px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .toggle-btn:hover {
+    background: #f5f5f5;
+  }
 </style>
