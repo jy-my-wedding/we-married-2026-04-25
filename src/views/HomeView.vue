@@ -1,6 +1,7 @@
 <script setup>
   import Cover from '@/components/public/Cover.vue'
-  import Gallery from '@/components/public/Gallery.vue'
+  import GalleryThumbnail from '@/components/public/GalleryThumbnail.vue'
+  import GalleryViewer from '@/components/public/GalleryViewer.vue'
   import Info from '@/components/public/Info.vue'
   import Reception from '@/components/public/Reception.vue'
   import Location from '@/components/public/Location.vue'
@@ -13,7 +14,7 @@
   import AboutUs from '@/components/public/AboutUs.vue'
   import Timeline from '@/components/public/Timeline.vue'
   import AudioPlayer from '@/components/public/AudioPlayer.vue'
-  import { onMounted } from 'vue'
+  import { onMounted, ref } from 'vue'
 
   const menuItems = [
     { id: 'Invitation', label: 'Invitation' },
@@ -29,6 +30,7 @@
   let observer = null
 
   onMounted(() => {
+    /** 스크롤 애니메이션 적용(배경음악 자동 실행용) */
     const revealElements = document.querySelectorAll('.reveal')
 
     const options = {
@@ -56,6 +58,63 @@
       observer.observe(el)
     })
   })
+
+  /* =====================
+   1. 이미지 로드
+===================== */
+  // 썸네일
+  const thumbs = Object.entries(
+    import.meta.glob('/src/assets/photo/wedding/thumbnail/*.{jpg,jpeg,png,webp}', {
+      eager: true,
+      import: 'default',
+    })
+  )
+    .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+    .map(([, src]) => src)
+
+  // 원본
+  const fullImages = Object.entries(
+    import.meta.glob('/src/assets/photo/wedding/thumbnail/*.{jpg,jpeg,png,webp}', {
+      eager: true,
+      import: 'default',
+    })
+  )
+    .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+    .map(([, src]) => src)
+
+  /* =====================
+   3. 뷰어 상태
+===================== */
+  const isOpen = ref(false)
+  const currentIndex = ref(0)
+
+  /**
+   * 자식 컴포넌트(GalleryViewer)에 넘길 currentIndex 컨트롤 함수
+   * @param {number} delta 1 또는 -1
+   */
+  const currentIndexUpdate = (delta) => {
+    const nextIndex = currentIndex.value + delta
+    if (nextIndex >= 0 && nextIndex < fullImages.length) {
+      currentIndex.value = nextIndex
+    }
+  }
+
+  /* =====================
+   4. 뷰어 열기 / 닫기
+===================== */
+  const openViewer = (index) => {
+    currentIndex.value = index
+    isOpen.value = true
+    // 뷰어가 열릴 때 스크롤 방지 (터치는 허용)
+    document.body.style.overflow = 'hidden'
+  }
+
+  const closeViewer = () => {
+    currentIndex.value = 0
+    isOpen.value = false
+    // 뷰어가 닫힐 때 스크롤 방지 해제
+    document.body.style.overflow = ''
+  }
 </script>
 
 <template>
@@ -85,7 +144,7 @@
     <Countdown />
   </div>
   <div class="size_box invitation-wrapper bg_white">
-    <!-- 
+    <!--
       스크롤 애니메이션 적용 시 배경색(흰색) 깨지는 문제 방지
     -->
     <div class="size_box invitation-wrapper bg_white reveal">
@@ -97,8 +156,14 @@
       <Reception />
     </div>
     <div class="size_box invitation-wrapper bg_white reveal">
-      <div class="title">Gallery</div>
-      <Gallery />
+      <div class="title" id="Gallery">Gallery</div>
+      <GalleryThumbnail
+        :is-open="isOpen"
+        :current-index="currentIndex"
+        :thumbs="thumbs"
+        :full-images="fullImages"
+        @open-viewer="openViewer"
+      />
     </div>
     <div class="size_box bg_white invitation-wrapper reveal">
       <div class="title" id="Cash">For Your Kind Wishes</div>
@@ -115,6 +180,13 @@
   <div class="bg_white invitation-wrapper" style="padding-bottom: 30px">
     <Copyright />
   </div>
+  <GalleryViewer
+    :is-open="isOpen"
+    :current-index="currentIndex"
+    :full-images="fullImages"
+    @close-viewer="closeViewer"
+    @current-index-update="currentIndexUpdate"
+  />
 </template>
 
 <style scoped>

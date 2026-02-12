@@ -49,7 +49,7 @@
     position: fixed;
     top: 20px;
     left: 12px;
-    z-index: 100;
+    z-index: 99;
     font-size: 24px;
     background: rgba(255, 255, 255, 0.6); /* 반투명 */
     border-radius: 8px;

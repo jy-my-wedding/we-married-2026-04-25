@@ -102,7 +102,7 @@
     font-size: 16px;
     cursor: pointer;
     position: fixed;
-    z-index: 1000;
+    z-index: 99;
     top: 70px;
     left: 12px;
   }
