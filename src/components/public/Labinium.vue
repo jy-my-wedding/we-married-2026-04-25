@@ -20,9 +20,10 @@
       const map = new kakao.maps.Map(mapContainer.value, {
         center,
         level: 3,
-        draggable: false,
-        scrollwheel: false,
+        draggable: true,
+        scrollwheel: true,
       })
+      map.setZoomable(true)
 
       const marker = new kakao.maps.Marker({
         position: center,
