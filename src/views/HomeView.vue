@@ -118,6 +118,16 @@
 </script>
 
 <template>
+  <div>
+    <p class="sr-only">
+      민주야 안뇽 나 명은이야~ 기억하겠지..? 우리 친했잖아..! 이미 알고 있겠지만 나 결혼해~~ 한때
+      술한잔도 같이 했던 사이로써,, 결혼소식 알리고 싶어서 연락해 ㅎㅅㅎ 민주는 축의금도 안내도
+      되니까 와서 경현이가 축사하면서 오열하는거 구경하고 밥먹구가 ㅎㅎ 이게 모바일 청첩장을 내가
+      만들어서,, 너에게 정보가 잘 전달될지는 모르겠지만 간단히 알려주면 26년 4월 25일 토요일 오후
+      5시 천호 라비니움 1층에서 해 ㅋㅋㅋㅋ 많관부,,! 못 오더라도 아마 경현이 오열 영상은 친구들이
+      찍어줄 예정이라 꼭 보내줄게 ㅎㅅㅎ 아무튼 결혼식끝나고 (금방은 못가는데,,!) 놀러갈께~~ 안녕~~
+    </p>
+  </div>
   <HamburgerMenu :menu-items="menuItems" />
   <AudioPlayer type="main" />
   <Cover id="Invitation" />
@@ -263,5 +273,17 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #b0a39c;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
 </style>

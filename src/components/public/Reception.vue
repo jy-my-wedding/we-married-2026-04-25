@@ -6,7 +6,7 @@
 
   const copyAddress = async (address) => {
     try {
-      await navigator.clipboard.writeText(`address`)
+      await navigator.clipboard.writeText(address)
       alert('주소가 복사되었습니다!')
     } catch {
       alert('복사 실패 😢')

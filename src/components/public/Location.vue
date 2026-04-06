@@ -11,7 +11,7 @@
 
   const copyAddress = async (address) => {
     try {
-      await navigator.clipboard.writeText(`address`)
+      await navigator.clipboard.writeText(address)
       alert('주소가 복사되었습니다!')
     } catch {
       alert('복사 실패 😢')
@@ -20,7 +20,6 @@
 
   const address = '서울특별시 송파구 천호대로 996'
 </script>
-
 <template>
   <section class="info-section">
     <p>라비니움 웨딩홀</p>
